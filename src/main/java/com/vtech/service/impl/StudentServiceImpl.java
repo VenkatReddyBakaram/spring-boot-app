@@ -77,4 +77,34 @@ public class StudentServiceImpl implements StudentService {
 		}
 		return null;
 	}
+
+	@Override
+	public List<Student> getStudentByStudName(String studName) {
+		return studentRepository.getStudentByStudName(studName);
+	}
+
+	@Override
+	public List<Student> getStudentByEmailId(String emailId) {
+		return studentRepository.getStudentByEmailId(emailId);
+	}
+
+	@Override
+	public List<Student> getStudentByStudNameAndEmailId(String studName, String emailId) {
+		return studentRepository.getStudentByStudNameAndEmailId(studName, emailId);
+	}
+
+	@Override
+	public List<Student> getStudentByStudNameOrEmailId(String studName, String emailId) {
+		return studentRepository.getStudentByStudNameOrEmailId(studName, emailId);
+	}
+
+	@Override
+	public List<Student> findByStudIdGreaterThan(Integer studId) {
+		return studentRepository.findByStudIdGreaterThan(studId);
+	}
+
+	@Override
+	public List<Student> findByStudNameOrderByMobileNumber(String studName) {
+		return studentRepository.findByStudNameOrderByMobileNumber(studName);
+	}
 }

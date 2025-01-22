@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -51,5 +52,36 @@ public class StudentController {
 	@DeleteMapping("/deleteStudentByStudId")
 	public String deleteStudentByStudId(@RequestParam Integer studId) {
 		return studentService.deleteStudentByStudId(studId);
+	}
+
+	// Keyword Related Methods
+	@GetMapping("/getStudentByStudName")
+	public List<Student> getStudentByStudName(@RequestParam String studName) {
+		return studentService.getStudentByStudName(studName);
+	}
+
+	@GetMapping("/getStudentByEmailId")
+	public List<Student> getStudentByEmailId(@RequestParam String emailId) {
+		return studentService.getStudentByEmailId(emailId);
+	}
+
+	@GetMapping("/getStudentByStudNameAndEmailId/{studName}/{emailId}")
+	public List<Student> getStudentByStudNameAndEmailId(@PathVariable String studName, @PathVariable String emailId) {
+		return studentService.getStudentByStudNameAndEmailId(studName, emailId);
+	}
+
+	@GetMapping("/getStudentByStudNameOrEmailId/{studName}/{emailId}")
+	public List<Student> getStudentByStudNameOrEmailId(@PathVariable String studName, @PathVariable String emailId) {
+		return studentService.getStudentByStudNameOrEmailId(studName, emailId);
+	}
+
+	@GetMapping("/findByStudIdGreaterThan/{studId}")
+	public List<Student> findByStudIdGreaterThan(@PathVariable Integer studId) {
+		return studentService.findByStudIdGreaterThan(studId);
+	}
+
+	@GetMapping("/findByStudNameOrderByMobileNumber/{studName}")
+	public List<Student> findByStudNameOrderByMobileNumber(@PathVariable String studName) {
+		return studentService.findByStudNameOrderByMobileNumber(studName);
 	}
 }

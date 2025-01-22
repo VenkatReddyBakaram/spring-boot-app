@@ -17,4 +17,17 @@ public interface StudentService {
 	public Student updateStudent(Integer studId, Student student);
 
 	public Student patchStudent(Integer studId, Student student);
+
+	// Keywords related Queries
+	public List<Student> getStudentByStudName(String studName);
+
+	public List<Student> getStudentByEmailId(String emailId);
+
+	public List<Student> getStudentByStudNameAndEmailId(String studName, String emailId);
+
+	public List<Student> getStudentByStudNameOrEmailId(String studName, String emailId);
+	
+	public List<Student> findByStudIdGreaterThan(Integer studId);
+	
+	public List<Student> findByStudNameOrderByMobileNumber(String studName);
 }
